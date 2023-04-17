@@ -35,7 +35,7 @@ export const MovieDetails = ({api}) => {
     : Backup
   return (
     <main>
-      <div className=" bg-white rounded-lg shadow  dark:bg-gray-800 p-3">
+      <div className=" bg-white rounded-lg shadow title-change:p-5 dark:bg-gray-800 p-3">
         <div className="flex justify-evenly flex-wrap my-4 gap-4">
           {error ? (
             <div className="block">
@@ -67,7 +67,7 @@ export const MovieDetails = ({api}) => {
                   {MovieData.name ? MovieData.name : MovieData.title}
                 </h5>
                 <p className="py-4">{MovieData.overview}</p>
-                <div className="flex gap-2 mb-3 title-change:justify-center ">
+                <div className="flex gap-2 mb-3 flex-wrap title-change:justify-center ">
                   {MovieData.genres &&
                     MovieData.genres.map((genre) => {
                       return <MovieGenre key={genre.id} genre={genre} />
