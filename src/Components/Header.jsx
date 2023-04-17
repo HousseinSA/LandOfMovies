@@ -27,6 +27,7 @@ export const Header = ({changing, changingValue, location}) => {
     if (changingValue) {
       navigate(pathname)
     }
+    // eslint-disable-next-line
   }, [pathname, changingValue])
   //  handeling the state of the bropdown menu of tv shows
   const [showMenu, setShowMenu] = useState(false)
@@ -40,6 +41,7 @@ export const Header = ({changing, changingValue, location}) => {
   useEffect(() => {
     if (changingValue === "") return
     navigate(`/search?q=${changingValue}`)
+     // eslint-disable-next-line
   }, [changingValue])
   useEffect(() => {
     if (pathname === "/shows/popular" || pathname === "/shows/top-rated") {
