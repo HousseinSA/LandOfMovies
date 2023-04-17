@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+main {
+  max-width: 1280px;
+  margin: auto;
+  padding: 12px;
+  min-height: 90vh;
+}
