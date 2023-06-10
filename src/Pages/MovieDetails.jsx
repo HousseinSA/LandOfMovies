@@ -77,7 +77,7 @@ export const MovieDetails = ({api}) => {
                   <div className="my-2">
                     {MovieData.release_date && (
                       <p>
-                        <span className="font-bold">Release date :</span>
+                        <span className="font-bold">Release date : </span>
                         {MovieData.release_date}
                       </p>
                     )}
@@ -85,7 +85,7 @@ export const MovieDetails = ({api}) => {
                   <div className="my-2">
                     {MovieData.budget || MovieData.budget !== undefined ? (
                       <p>
-                        <span className="font-bold">Budget: </span> $
+                        <span className="font-bold">Budget : </span> $
                         {ReadableNumber(MovieData.budget)}
                       </p>
                     ) : null}
@@ -143,7 +143,7 @@ export const MovieDetails = ({api}) => {
                   <div className="my-2">
                     {MovieData.runtime ? (
                       <p>
-                        <span className="font-bold">Length: </span>
+                        <span className="font-bold">Length : </span>
                         {converMinutesToHours(MovieData.runtime)}
                       </p>
                     ) : (

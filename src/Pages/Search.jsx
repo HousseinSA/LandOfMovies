@@ -4,6 +4,7 @@ import {Card} from "../Components"
 export const Search = ({api, location}) => {
   const [searchParmas] = useSearchParams()
   const querySearch = searchParmas.get("q")
+  console.log(querySearch)
   const {MovieData, loading} = useFetch(api, querySearch, location)
   useTitle(`Search: ${querySearch}`)
   return (

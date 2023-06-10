@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react"
 import {Link, NavLink, useNavigate, useLocation} from "react-router-dom"
 import {FaMoon, FaSun} from "react-icons/fa"
+import Logo from "../assets/cina-info-high-resolution-logo-color-on-transparent-background.png"
 export const Header = ({changing, changingValue, location}) => {
   // state to hide the nav bar of show it
   const [hidden, setHidden] = useState(true)
@@ -22,13 +23,6 @@ export const Header = ({changing, changingValue, location}) => {
       document.body.style = "background: white"
     }
   }, [darkMode])
-  // useEffect to
-  useEffect(() => {
-    if (changingValue) {
-      navigate(pathname)
-    }
-    // eslint-disable-next-line
-  }, [pathname, changingValue])
   //  handeling the state of the bropdown menu of tv shows
   const [showMenu, setShowMenu] = useState(false)
   function handelTVMenu() {
@@ -36,13 +30,10 @@ export const Header = ({changing, changingValue, location}) => {
   }
   function handelSubmit(e) {
     e.preventDefault()
-    changing("")
-  }
-  useEffect(() => {
     if (changingValue === "") return
     navigate(`/search?q=${changingValue}`)
-     // eslint-disable-next-line
-  }, [changingValue])
+    changing("")
+  }
   useEffect(() => {
     if (pathname === "/shows/popular" || pathname === "/shows/top-rated") {
       location(pathname)
@@ -54,7 +45,6 @@ export const Header = ({changing, changingValue, location}) => {
     ) {
       location(pathname)
     }
-    changing("")
   }, [pathname, location, changing])
   const acitve =
     "block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
@@ -65,8 +55,8 @@ export const Header = ({changing, changingValue, location}) => {
       <nav className="header bg-white border-gray-200  dark:bg-gray-900">
         <div className="max-w-screen-xl x-sm:flex-wrap x-sm:gap-2 flex-wrap  flex items-center justify-between mx-auto p-4 x-sm:justify-center gap-1">
           <Link className="flex items-center" to={"/"}>
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-              Moviesland
+            <span className="self-center w-36 text-2xl font-semibold whitespace-nowrap dark:text-white">
+              <img src={Logo} alt="logo" />
             </span>
           </Link>
           <div id="mobile-nav" className="flex md:order-2 gap-2">
@@ -125,10 +115,10 @@ export const Header = ({changing, changingValue, location}) => {
                   type="text"
                   id="search-navbar"
                   name="search"
-                  className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  value={changingValue}
+                  className="h-sizing:hidden w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Search... "
                   autoComplete="off"
-                  value={changingValue}
                   onChange={(e) => changing(e.target.value)}
                 />
               </form>

@@ -2,12 +2,12 @@ import {useState, useEffect, useCallback} from "react"
 export const useFetch = (api, querySearch = "", location) => {
   const [MovieData, setMovieData] = useState([])
   const [error, setError] = useState()
-  const apiKey = process.env.REACT_APP_API_KEY
+  const apiKey = process.env.REACT_APP_APIKEY
   const apiUrl = useCallback(() => {
     if (location === "/shows/top-rated" || location === "/shows/popular") {
       return `https://api.themoviedb.org/3/search/tv?api_key=${apiKey}&query=${querySearch}`
     } else {
-      return `https://api.themoviedb.org/3/${api}?api_key=2937fadbed7c5cedfea486f648195bb7&query=${querySearch}`
+      return `https://api.themoviedb.org/3/${api}?api_key=${apiKey}&query=${querySearch}`
     }
   }, [api, location, querySearch, apiKey])
   useEffect(() => {
